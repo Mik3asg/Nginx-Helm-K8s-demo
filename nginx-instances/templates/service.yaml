@@ -1,0 +1,14 @@
+{{- range $.Values.instances }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .name }}-svc
+spec:
+  type: NodePort
+  ports:
+  - port: 80
+  selector:
+    app: {{ .name }}
+{{- end }}
+

@@ -1,0 +1,21 @@
+{{- range .Values.ingress.hosts }}
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ .host | replace "." "-" }}
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host: {{ .host }}
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: {{ .serviceName }}
+            port:
+              number: {{ .servicePort }}
+---
+{{- end }}

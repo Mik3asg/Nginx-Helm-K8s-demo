@@ -1,0 +1,20 @@
+image:
+  name: nginx
+  tag: 1.16
+
+instances:
+  - name: webapp-customer100
+    replicas: 1
+
+  - name: webapp-customer200
+    replicas: 1
+
+ingress:
+  hosts:
+    - host: customer100.example.com
+      serviceName: webapp-customer100-svc
+      servicePort: 80
+
+    - host: customer200.example.com
+      serviceName: webapp-customer200-svc
+      servicePort: 80
