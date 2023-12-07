@@ -30,14 +30,17 @@ This guide covers:
 - Create a new project directory: `mkdir multi_nginx_instances_demo`
 - Create the directory structure as follows:
   ```bash
-    ~/multi_nginx_instances_helm_demo
-  ├── nginx-instances
-  │   ├── Chart.yaml
-  │   ├── templates
-  │   │   ├── deployment.yaml
-  │   │   ├── ingress.yaml
-  │   │   └── service.yaml
-  │   └── values.yaml
+  ~/multi_nginx_instances_helm_demo$ tree
+  .
+  └── nginx-instances
+      ├── Chart.yaml
+      ├── templates
+      │   ├── deployment.yaml
+      │   ├── ingress.yaml
+      │   └── service.yaml
+      └── values.yaml
+
+  2 directories, 5 files
   ``` 
 #### Configure Helm template files
 - Populate template files: `deployment.yaml`, `service.yaml`, `ingress.yaml` as per provided configuration files
@@ -98,16 +101,19 @@ However, in case of deletion or upgrades of the helm resources, we'll rely on th
 
 Here's the directory structure for reference:
 ```bash
-    ~/multi_nginx_instances_helm_demo
-    ├── automation                  # new directory created                  
-    │   └── helm-install-script.py  # python script
-    └── nginx-instances
-        ├── Chart.yaml
-        ├── templates
-        │   ├── deployment.yaml
-        │   ├── ingress.yaml
-        │   └── service.yaml
-        └── values.yaml
+~/multi_nginx_instances_helm_demo$ tree
+.
+├── automation
+│   └── helm-install-script.py
+└── nginx-instances
+    ├── Chart.yaml
+    ├── templates
+    │   ├── deployment.yaml
+    │   ├── ingress.yaml
+    │   └── service.yaml
+    └── values.yaml
+
+3 directories, 6 files
 ```
 - Create `automation/` directory in `~/multi_nginx_instances_helm_demo`
 - Create `helm-install-script.py` script under `automation/` directory and populated it as per the script provided 
